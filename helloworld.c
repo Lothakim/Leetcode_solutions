@@ -1,6 +1,7 @@
 #include<stdio.h>
 
-void main(){
+void main()
+{
     char a[10];
     scanf("%s",&a);
     printf("%s, hello world!", a);
