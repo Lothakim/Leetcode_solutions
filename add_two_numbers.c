@@ -38,5 +38,37 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
     struct ListNode* l2_rev;
     l1_rev = reverseList(l1);
     l2_rev = reverseList(l2);
-    
+
+    int x;
+    int y = 0;
+    struct ListNode* l = (struct ListNode* )malloc(sizeof(struct ListNode));
+    struct ListNode* l_rev = (struct ListNode* )malloc(sizeof(struct ListNode));
+    struct ListNode* p1 = l1_rev;
+    struct ListNode* p2 = l2_rev;
+
+    while (p1&&p2)
+    {
+        x = (p1->val + p2->val) % 10 + y;
+        y = (p1->val + p2->val) / 10;
+        insertList(l_rev, x);
+        p1 = p1->next;
+        p2 = p2->next;
+    }
+
+    if (p1)
+        while (p1)
+        {
+            insertList(l_rev, p1->val);
+            p1 = p1->next;
+        }
+
+    if (p2)
+        while (p2)
+        {
+            insertList(l_rev, p2->val);
+            p2 = p2->next;
+        }
+
+    l = reverseList(l_rev);
+    return l;
 }
