@@ -40,9 +40,8 @@ int lengthOfLongestSubstring(char * s)
         }
 
         if (sub_str_len > max)
-        {
             max = sub_str_len;
-        }
+            
         sub_str_len = 1;
     }
     
