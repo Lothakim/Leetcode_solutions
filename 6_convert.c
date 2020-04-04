@@ -16,7 +16,7 @@ int main(void)
 char * convert(char * s, int numRows)
 {
     int len = strlen(s);
-    char r[numRows][len];
+    char r[numRows][len];               //建立一个二维数组并初始化，用于在特定位置存储Z型数列
     for (int i = 0; i < numRows; i++)
     {
         for (int j = 0; j < len; j++)
@@ -29,13 +29,13 @@ char * convert(char * s, int numRows)
     int i = 0, j = 0, count = 1;
     while (*p != '\0')
     {
-        int pos = count%(2*numRows-2);
-        if (pos < numRows && pos > 0)
+        int pos = count%(2*numRows-2);  //根据元素的序号判断其位置
+        if (pos < numRows && pos > 0)   //若位于竖直部分，则行号加一，列号不变
         {
             r[i][j] = *p;
             i++;
         }
-        else
+        else                            //若位于斜线部分，则行号减一，列号加一
         {
             r[i][j] = *p;
             i--;
